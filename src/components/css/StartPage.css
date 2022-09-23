@@ -1,0 +1,92 @@
+@font-face {
+    font-family: "pongFont";
+    src: url("./fonts/pongFont.ttf") format("truetype");
+}
+
+.gameTitle{
+    position: absolute;
+
+    width: 100vw;
+    height: 20vh;
+
+    left: 0;
+    top: 20%;
+
+    font-family: "pongFont";
+    font-size: 3vw;
+
+    text-align: center;
+
+    color: white;
+}
+
+.selectGameModeText {
+    position: absolute;
+
+    width: 100vw;
+    height: 20vh;
+
+    left: 0;
+    top: 40%;
+
+    font-family: "pongFont";
+    font-size: 2vw;
+
+    text-align: center;
+
+    color: white;
+}
+
+
+.gamemodesWrapper {
+    position: absolute;
+
+    width: 15%;
+    height: 40%;
+
+    left: 37.5vw;
+    top: 55%;
+
+    background-color: black;
+}
+
+.gamemodesWrapper button {
+    position: absolute;
+    display: inline;
+    white-space: nowrap;
+
+    padding: 0;
+    border: none;
+    outline: 0;
+
+    height: 5vh;
+    width: 25vw;
+
+    color: white;
+
+    font-family: "pongFont";
+    font-size: 1.5vw;
+    
+    background-color: transparent;
+    border: 0.1vw solid black;
+
+    text-overflow: "-";
+    line-height: 150%;
+    text-align: center;
+}
+
+#TwoPlayersBtn {
+    top: 0;
+}
+
+#EasyBtn{
+    top: 25%;
+}
+
+#MediumBtn {
+    top: 50%;
+}
+
+#HardBtn {
+    top: 75%;
+}
