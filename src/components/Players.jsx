@@ -1,5 +1,7 @@
 import React, { Component} from 'react';
+
 import "./css/Players.css";
+import Ball from "./Ball";
 
 class Players extends Component {
     state = { }
@@ -93,6 +95,8 @@ class Players extends Component {
             <React.Fragment>
             <div className="playerAvatar rounded-pill" id="playerOne" style={{top: this.state.OneY+"vh"}}/>
             <div className="playerAvatar rounded-pill" id="playerTwo" style={{top: this.state.TwoY+"vh"}}/>
+
+            <Ball/>
             </React.Fragment>
 
         );
