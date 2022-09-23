@@ -1,0 +1,19 @@
+.playerAvatar {
+    position: absolute;
+
+    width: 0.6vw;
+
+    height: 12vh;
+
+    background-color: white;
+
+    transition: top 100ms linear;
+}
+
+#playerOne {
+    left: 0.8vw;
+}
+
+#playerTwo {
+    right: 0.8vw;
+}

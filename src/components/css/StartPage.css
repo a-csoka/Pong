@@ -10,7 +10,7 @@
     height: 20vh;
 
     left: 0;
-    top: 20%;
+    top: 10%;
 
     font-family: "pongFont";
     font-size: 3vw;
@@ -27,7 +27,7 @@
     height: 20vh;
 
     left: 0;
-    top: 40%;
+    top: 30%;
 
     font-family: "pongFont";
     font-size: 2vw;
@@ -45,7 +45,7 @@
     height: 40%;
 
     left: 37.5vw;
-    top: 55%;
+    top: 45%;
 
     background-color: black;
 }

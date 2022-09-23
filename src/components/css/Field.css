@@ -1,0 +1,62 @@
+#left-border {
+    position: absolute;
+
+    left: 0;
+    width: 0.4vw;
+
+    top: 0;
+    height: 100vh;
+
+    background-color: white;
+}
+
+#right-border {
+    position: absolute;
+
+    right: 0;
+    width: 0.4vw;
+
+    top: 0;
+    height: 100vh;
+
+    background-color: white;
+}
+
+#top-border {
+    position: absolute;
+
+    left: 0;
+    width: 100vw;
+
+    top: 0;
+    height: 0.4vw;
+
+    background-color: white;
+}
+
+#bottom-border {
+    position: absolute;
+
+    left: 0;
+    width: 100vw;
+
+    bottom: 0;
+    height: 0.4vw;
+
+    background-color: white;
+}
+
+.halfField {
+    position: absolute;
+
+    left: 49.75vw;
+    width: 0;
+
+    top: 0;
+    height: 100vh;
+
+    border-right: 0.5vw dashed white;
+
+    background-color: transparent;
+
+}
