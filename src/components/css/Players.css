@@ -1,3 +1,8 @@
+@font-face {
+    font-family: "pongFont";
+    src: url("./fonts/pongFont.ttf") format("truetype");
+}
+
 .playerAvatar {
     position: absolute;
 
@@ -16,4 +21,49 @@
 
 #playerTwo {
     right: 0.8vw;
+}
+
+.scoreTableOne {
+    position: absolute;
+
+    font-family: "pongFont";
+    font-size: 3vw;
+
+    width: 40vw;
+    height: 20vh;
+
+    top: 4vh;
+    color:white;
+
+    left: 0;
+
+    text-align: right;
+
+}
+
+.scoreTableTwo {
+    position: absolute;
+
+    font-family: "pongFont";
+    font-size: 3vw;
+
+    width: 40vw;
+    height: 20vh;
+
+    top: 4vh;
+    color:white;
+
+    right:0;
+
+    text-align: left;
+
+}
+
+.leftOne{
+    left: 100%;
+    
+}
+
+.scoreTable .two{
+    right: 100%;
 }

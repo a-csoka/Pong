@@ -12,6 +12,9 @@ class Players extends Component {
             OneY: 44,
             TwoY: 44,
 
+            ScoreOne: 0,
+            ScoreTwo: 0,
+
             "KeyW": false,
             "KeyS": false,
             "ShiftLeft": false,
@@ -90,13 +93,28 @@ class Players extends Component {
         }
     }
 
+    addScore = (team) => {
+        if(team == "ScoreOne"){
+            this.setState(() => ({
+                ScoreOne: this.state.ScoreOne+1,
+            }))
+        }else if(team == "ScoreTwo") {
+            this.setState(() => ({
+                ScoreTwo: this.state.ScoreTwo+1,
+            }))
+        }
+    }
+
     render() { 
         return (
             <React.Fragment>
             <div className="playerAvatar rounded-pill" id="playerOne" style={{top: this.state.OneY+"vh"}}/>
             <div className="playerAvatar rounded-pill" id="playerTwo" style={{top: this.state.TwoY+"vh"}}/>
-            
-            <Ball/>
+
+            <div className="scoreTableOne">{this.state.ScoreOne}</div>
+            <div className="scoreTableTwo">{this.state.ScoreTwo}</div>
+
+            <Ball PData={this.state} addScore={this.addScore}/>
             </React.Fragment>
 
         );
