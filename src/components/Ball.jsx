@@ -91,7 +91,7 @@ class Ball extends Component {
     restartBall = () => {
         let randomRot = 0
         if(Math.random() <= 0.5){
-            randomRot = 0
+            randomRot = 180
         }
         this.setState(() => ({ 
             ballX: 49,
