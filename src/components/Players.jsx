@@ -80,25 +80,29 @@ class Players extends Component {
 
 
     keyUpHandler = (key) => {
-        if(this.state[key.code] == true) {
+        if(this.state[key.code]) {
             key.preventDefault()
-            this.state[key.code] = false
+            this.setState(() => ({
+                [key.code]: true,
+            }))
         }
     }
 
     keyDownHandler = (key) => { 
-        if(this.state[key.code] == false) {
+        if(!this.state[key.code]) {
             key.preventDefault()
-            this.state[key.code] = true
+            this.setState(() => ({
+                [key.code]: true,
+            }))
         }
     }
 
     addScore = (team) => {
-        if(team == "ScoreOne"){
+        if(team === "ScoreOne"){
             this.setState(() => ({
                 ScoreOne: this.state.ScoreOne+1,
             }))
-        }else if(team == "ScoreTwo") {
+        }else if(team === "ScoreTwo") {
             this.setState(() => ({
                 ScoreTwo: this.state.ScoreTwo+1,
             }))
