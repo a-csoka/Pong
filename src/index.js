@@ -5,10 +5,11 @@ import reportWebVitals from './reportWebVitals';
 import "../node_modules/bootstrap/dist/css/bootstrap.css";
 import Engine from "./Engine";
 
+document.getElementById('root').requestFullscreen()
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   //<React.StrictMode>
-    <Engine />
+    <Engine className="navbar hidden-tablet hidden-phone"/>
   //</React.StrictMode>
 );
 

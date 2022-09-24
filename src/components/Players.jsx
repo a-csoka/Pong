@@ -28,6 +28,8 @@ class Players extends Component {
     componentDidMount() {
         document.addEventListener('keyup', this.keyUpHandler); 
         document.addEventListener('keydown', this.keyDownHandler); 
+        document.addEventListener('touchmove', this.mobileMoveCheck); 
+        document.addEventListener('touchstart', this.mobileMoveCheck); 
 
         this.movementCheckOne = (time) => {
             if(this.state["KeyW"]) {
@@ -76,6 +78,18 @@ class Players extends Component {
         this.movementCheckTwo(35)
 
 
+    }
+
+    mobileMoveCheck = (key) => {
+        for(var i = 0; i< key.touches.length; i++){
+            if(key.touches[i].pageX/window.innerWidth <= 0.5){
+                const newY = key.touches[i].pageY/window.innerHeight*100-6
+                this.setState(() => ({OneY: newY}));
+            }else if(key.touches[i].pageX/window.innerWidth > 0.5){
+                const newY = key.touches[i].pageY/window.innerHeight*100-6
+                this.setState(() => ({TwoY: newY}));
+            }
+        }
     }
 
 
