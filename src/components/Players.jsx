@@ -83,7 +83,7 @@ class Players extends Component {
         if(this.state[key.code]) {
             key.preventDefault()
             this.setState(() => ({
-                [key.code]: true,
+                [key.code]: false,
             }))
         }
     }
