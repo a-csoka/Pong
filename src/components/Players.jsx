@@ -1,4 +1,4 @@
-import React, { Component} from 'react';
+import React, { Component, useRef} from 'react';
 
 import "./css/Players.css";
 import Ball from "./Ball";
@@ -23,15 +23,30 @@ class Players extends Component {
             "ArrowDown": false,
             "ShiftRight": false,
         }
+        this.childRef = React.createRef()
     }   
 
     componentDidMount() {
+        console.log(this.childRef.current.state.ballY)
         document.addEventListener('keyup', this.keyUpHandler); 
         document.addEventListener('keydown', this.keyDownHandler); 
         document.addEventListener('touchmove', this.mobileMoveCheck); 
         document.addEventListener('touchstart', this.mobileMoveCheck); 
 
         this.movementCheckOne = (time) => {
+
+            if(this.props.gamemode == "Easy") {
+                //console.log((this.state.TwoY-(window.innerWidth*0.008/window.innerHeight/100)+6.5)/100)
+                //console.log(this.state.OneY)
+                //console.log(this.childRef.current.state.ballY)
+                if(this.state.OneY > this.childRef.current.state.ballY) {
+                    this.setState(() => ({ "KeyW": true, "KeyS": false}));
+                }else if((this.state.OneY+6 < this.childRef.current.state.ballY)) {
+                    this.setState(() => ({ "KeyW": false, "KeyS": true}));
+                }else{
+                    this.setState(() => ({ "KeyW": false, "KeyS": false}));
+                }
+            }
             if(this.state["KeyW"]) {
                 if(this.state.OneY-1 >= 1) {
                     this.setState(() => ({ OneY: this.state.OneY-1 }));
@@ -95,19 +110,23 @@ class Players extends Component {
 
     keyUpHandler = (key) => {
         if(this.state[key.code]) {
-            key.preventDefault()
-            this.setState(() => ({
-                [key.code]: false,
-            }))
+            if((this.props.gamemode === "Easy" && (key.code==="ArrowUp" || key.code==="ArrowDown")) || this.props.gamemode === "TwoPlayer"){
+                key.preventDefault()
+                this.setState(() => ({
+                    [key.code]: false,
+                }))
+            }
         }
     }
 
     keyDownHandler = (key) => { 
         if(!this.state[key.code]) {
-            key.preventDefault()
-            this.setState(() => ({
-                [key.code]: true,
-            }))
+            if((this.props.gamemode === "Easy" && (key.code==="ArrowUp" || key.code==="ArrowDown")) || this.props.gamemode === "TwoPlayer") {
+                key.preventDefault()
+                this.setState(() => ({
+                    [key.code]: true,
+                }))
+            }
         }
     }
 
@@ -132,7 +151,7 @@ class Players extends Component {
             <div className="scoreTableOne">{this.state.ScoreOne}</div>
             <div className="scoreTableTwo">{this.state.ScoreTwo}</div>
 
-            <Ball PData={this.state} addScore={this.addScore}/>
+            <Ball PData={this.state} addScore={this.addScore} ref={this.childRef}/>
             </React.Fragment>
 
         );

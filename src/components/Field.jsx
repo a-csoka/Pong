@@ -6,6 +6,7 @@ import Players from "./Players";
 class Field extends Component {
     constructor(props) {
         super(props);
+        
     }
 
     render() {
@@ -18,7 +19,7 @@ class Field extends Component {
 
                 <div className="halfField"/>
 
-                <Players/>
+                <Players gamemode={this.props.gamemode}/>
             </React.Fragment>
         )
     }

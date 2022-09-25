@@ -23,10 +23,10 @@ class Engine extends Component {
         let currentPage;
 
         if(this.state.gamemode == null) {
-            currentPage = <StartPage startGameHandler={this.startGameHandler}></StartPage>
+            currentPage = <StartPage startGameHandler={this.startGameHandler} ></StartPage>
         }else{
             currentPage = (
-            <Field></Field>
+            <Field gamemode={this.state.gamemode}></Field>
             )
         }
 
