@@ -13,10 +13,19 @@ class Engine extends Component {
         this.startGameHandler = this.startGameHandler.bind(this)
     }
 
+    componentDidMount() {
+        document.addEventListener('keydown', this.exitHandler); 
+    }
+
     startGameHandler(gamemode){
         this.setState({
             gamemode: gamemode,
         })
+    }
+
+    exitHandler = (key) => {
+        if(key.code == "Backspace")
+            this.setState(() => ({gamemode: null}));
     }
       
     render() { 

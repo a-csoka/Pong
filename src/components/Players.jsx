@@ -27,7 +27,6 @@ class Players extends Component {
     }   
 
     componentDidMount() {
-        console.log(this.childRef.current.state.ballY)
         document.addEventListener('keyup', this.keyUpHandler); 
         document.addEventListener('keydown', this.keyDownHandler); 
         document.addEventListener('touchmove', this.mobileMoveCheck); 
@@ -39,12 +38,14 @@ class Players extends Component {
                 //console.log((this.state.TwoY-(window.innerWidth*0.008/window.innerHeight/100)+6.5)/100)
                 //console.log(this.state.OneY)
                 //console.log(this.childRef.current.state.ballY)
-                if(this.state.OneY > this.childRef.current.state.ballY) {
-                    this.setState(() => ({ "KeyW": true, "KeyS": false}));
-                }else if((this.state.OneY+6 < this.childRef.current.state.ballY)) {
-                    this.setState(() => ({ "KeyW": false, "KeyS": true}));
-                }else{
-                    this.setState(() => ({ "KeyW": false, "KeyS": false}));
+                if(this.childRef.current != null) {
+                    if(this.state.OneY > this.childRef.current.state.ballY) {
+                        this.setState(() => ({ "KeyW": true, "KeyS": false}));
+                    }else if((this.state.OneY+6 < this.childRef.current.state.ballY)) {
+                        this.setState(() => ({ "KeyW": false, "KeyS": true}));
+                    }else{
+                        this.setState(() => ({ "KeyW": false, "KeyS": false}));
+                    }
                 }
             }
             if(this.state["KeyW"]) {
